@@ -1,0 +1,226 @@
+<html>
+<head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<title>Game Store Balabizo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+*
+{
+margin: 0;
+padding: 0;
+}
+html{
+background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+background-size:cover ;
+background-repeat: no-repeat;
+background-attachment: fixed; /* <= This one */
+}
+header
+{
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+}
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+.main-nav li
+{
+display: inline-block;
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+.btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+}
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+.btn-group button:not(:last-child) {
+border-right: none; /* Prevent double borders */
+}
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+.mySlides {display:none;}
+
+.txt1{
+width:50%;
+height:50%;
+margin-top:8%;
+position: absolute;
+background: linear-gradient(rgba(143, 125, 125, 0.5),rgba(0,0,0,0.5)),none;
+color:white;
+border-right: 6px solid rgb(211, 74, 74);
+border-left: 6px solid rgb(182, 71, 71);
+border-bottom: 6px solid rgb(173, 61, 61);
+font-variant: small-caps;
+font-style: inherit;
+font-size: 1.5em;
+letter-spacing: 1px;
+text-align: center;
+margin-right:0%;
+}
+
+.txt2{
+width:50%;
+height:50%;
+margin-top:8%;
+position: absolute;
+background: linear-gradient(rgba(143, 125, 125, 0.5),rgba(0,0,0,0.5)),none;
+color:white;
+border-right: 6px solid rgb(211, 74, 74);
+border-left: 6px solid rgb(182, 71, 71);
+border-bottom: 6px solid rgb(173, 61, 61);
+font-variant: small-caps;
+font-style: inherit;
+font-size: 1.5em;
+letter-spacing: 1px;
+text-align: center;
+margin-left:50%;
+}
+
+button{
+  float:right;
+  height: 100px;
+  width: 120px;
+  border: 0px;
+  margin-top: -14%;
+  background: #e74c3c;
+  border-radius:7px;
+  padding: 10px;
+  color:white;
+  font-size:22px;
+  position:absolute;
+  margin-left:40%;
+
+}
+
+input {
+  padding: 16px;
+  border-radius:7px;
+  border:0px;
+  background: rgba(255,255,255,.2);
+  display: block;
+  margin-left:10%;
+  margin-top:-10%;
+  width: 300px;  
+  color:white;
+  font-size:18px;
+  height: 54px;
+}
+h1{
+color:white;
+margin-top:2%;
+position: absolute;
+}
+h2{
+color:white;
+margin-top: 2%;
+margin-left:50%;
+position: absolute;
+}
+</style>
+
+<header>
+        <div class="row">
+            <ul class ="main-nav">
+            <li class="active"> <a href ="/LP">Logistic Partner</a> </li>
+            </ul>
+        </div>
+        <h1>Deliver Orders</h1>
+        <textarea readonly="readonly" id ="txt1" style="resize: none;" class="txt1"> </textarea>
+        <h2>Return Orders</h2>
+        <textarea readonly="readonly" id ="txt2" style="resize: none;" class="txt2"> </textarea>
+
+      </header>
+</head>
+<body>
+                <div>
+                <table style="width: 27%; height:auto;" id="table1" border="0" class="table1" cellspacing="1" cellpadding="0">
+                  <table style="width: 27%; height:auto;" id="table2" border="0" class="table2" cellspacing="1" cellpadding="0">
+                  <tr>
+                    <th style="color: lavender; text-align: center; margin-top:30px ;">
+                    </th>
+                    </tr>
+                    </table>
+                    </div>
+                    <p id="url" class="da"></p>
+            <script>
+        $.getJSON('/viewOrder', function(data) {
+        var tableRef = document.getElementById('table1');  
+        var ookk = document.getElementById('txt1');  
+        ookk.value=``
+        if(data.length!=0){
+		    for(var i=0;i<data.length;i++){
+        tableRef.value=`${ookk.value} Order id : ${data[i].id}  Number Of Copies  : ${data[i].no_copies} \n  Date Of Order  : ${data[i].dateOfOrder} \n Customer Id : ${data[i].customerid} \n Customer Address : ${data[i].address} \n ___________________\n`;
+        ookk.value=tableRef.value
+        }}});
+        $.getJSON('/viewRetOrder', function(data) {
+        var tableRef1 = document.getElementById('table2');  
+        var ookk1 = document.getElementById('txt2');  
+        ookk1.value=``
+        if(data.length!=0){
+		    for(var i=0;i<data.length;i++){
+        tableRef1.value=`${ookk1.value} Order id : ${data[i].id}  Number Of Copies  : ${data[i].no_copies} \n  Date Of Order  : ${data[i].dateOfOrder} \n Customer Id : ${data[i].customerid} \n Customer Address : ${data[i].address} \n ___________________\n`;
+        ookk1.value=tableRef1.value
+        }}});
+
+        function validate(){
+            var url = location.href;
+            var res = url.split("/");
+            var res2 = res[res.length-1];
+            var number = document.getElementById("number").value;
+            var flos = document.getElementById("flos").value;
+            alert("Order Accepted Successfully");
+            window.location="/acceptingorders/"+res2+"/"+number+"/"+flos;
+            window.loaction="/LP";
+        }
+            </script>
+            <button class="submit" onclick="validate()">Accept Order</button>
+        <input type="number" class="pass" id="number" placeholder="Insert Accepted Order ID .."/>
+        <input type="number" class="pass" id="flos" placeholder="7ot else3r lw sm7t .."/>
+
+</body>
+
+</html>

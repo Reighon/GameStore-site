@@ -1,0 +1,293 @@
+<html>
+<head>
+<style>
+*
+{
+margin: 0;
+padding: 0;
+}
+html{
+  background-size:100% ;
+
+  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+
+  background-attachment: fixed;
+}
+header
+{
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+}
+
+
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+
+.main-nav li
+{
+display: inline-block;
+
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+.btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+}
+  .bar{
+  position: absolute;
+  width:40%;
+  min-width: 150px;
+  margin-left: 10%; 
+  margin-top:10%;
+}
+.bar > details{
+color: white;
+}
+.bar > details > summary{
+  color:white;
+  margin:6px;
+  padding:8px;
+  background: none;
+  cursor: pointer;
+}
+.bar > details > summary:hover{
+  color:brown;
+}
+.bar > details > input{
+  display: block;
+  text-decoration: none;
+  color:rgb(207, 204, 204);
+  font-size: 13px;
+  margin:3px 6px 3px 18px;
+  padding: 4px;
+  background: none;
+  width:250px;
+}
+.submit{
+  width:100px;
+  height: 30px;
+  color:green;
+  background:black ;
+  margin:3px 6px 3px 18px;
+}
+.submit1{
+  width:100px;
+  height: 30px;
+  color:rgb(69, 87, 245);
+  background:black ;
+  margin:3px 6px 3px 18px;
+}
+h1{
+  color:white;
+}
+.bar2{
+  position: absolute;
+  width:40%;
+  min-width: 150px;
+  margin-left: 60%; 
+  margin-top:10%;
+}
+.bar2 > details{
+color: white;
+}
+.bar2 > details > summary{
+  color:white;
+  margin:6px;
+  padding:8px;
+  background: none;
+  cursor: pointer;
+}
+.bar2 > details > summary:hover{
+  color:brown;
+}
+.bar2 > details > input{
+  display: block;
+  text-decoration: none;
+  color:rgb(207, 204, 204);
+  font-size: 13px;
+  margin:3px 6px 3px 18px;
+  padding: 4px;
+  background: none;
+  width:250px;
+}
+</style>
+<title>Game Store Balabizo</title>
+<Link href="ServicesSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header>
+
+		<div class="row">
+			<ul class ="main-nav">
+				<li> <a href ="/Home">HOME </a> </li>
+				<li> <a href ="/Games">Games</a> </li>
+				<li class="active"> <a href ="/Services">SERVICES</a> </li>
+				<li> <a href ="/Login">LOG IN</a> </li>
+
+
+			</ul>
+
+    </div>
+    
+<div class="bar">
+<h1>Admin Space</h1>
+<details>
+ <summary>Blocking A Customer</summary>
+  <span class="entypo-user inputUserIcon">
+    <i class="fa fa-user"></i>
+    </span>
+     <input type="text" class="user" placeholder="CustomerId.."/>
+             <button class="submit">Enter</button>
+          </details>
+          <details>
+              <summary>Adding A Logistic Partner</summary>
+              <span class="entypo-user inputUserIcon">
+                  <i class="fa fa-user"></i>
+                </span>
+               <input type="text" class="user" placeholder="Logistic Partner Address.."/>
+               <button class="submit">Enter</button>
+            </details>
+            <details>
+                <summary>Inserting A Game</summary>
+                <span class="entypo-user inputUserIcon">
+                    <i class="fa fa-user"></i>
+                  </span>
+                 <input type="text" class="user" placeholder="Game Name.."/>
+                 <span class="entypo-user inputUserIcon">
+                    <i class="fa fa-user"></i>
+                  </span>
+                 <input type="text" class="user" placeholder="Rate"/>
+                 <span class="entypo-user inputUserIcon">
+                    <i class="fa fa-user"></i>
+                  </span>
+                 <input type="text" class="user" placeholder="Date"/>
+                 <button class="submit">Enter</button>
+              </details>
+              <details>
+                  <summary>Inserting A Game Category</summary>
+                  <span class="entypo-user inputUserIcon">
+                      <i class="fa fa-user"></i>
+                    </span>
+                   <input type="text" class="user" placeholder="Game Id.."/>
+                   <span class="entypo-user inputUserIcon">
+                      <i class="fa fa-user"></i>
+                    </span>
+                   <input type="text" class="user" placeholder="Category.."/>
+                   <button class="submit">Enter</button>
+                   </details>
+                   <details>
+                      <summary>Inserting A Game Development Studio</summary>
+                      <span class="entypo-user inputUserIcon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                       <input type="text" class="user" placeholder="Game Id.."/>
+                       <span class="entypo-user inputUserIcon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                       <input type="text" class="user" placeholder="Studio Name.."/>
+                       <button class="submit">Enter</button>
+                       </details>     
+                       <details>
+                          <summary>Adding a copy</summary>
+                          <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" placeholder="is_rental 1 is yes 0 if no .."/>
+                           <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" placeholder="How much is it?.."/>
+                           <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" placeholder="Copy Platform.."/>
+                           <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" placeholder="Game id.."/>
+                           <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" placeholder="Daily Rental Rate.."/>
+                           <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" placeholder="How is the Copy CD 0 or 1 or 2.."/>
+                           <button class="submit">Enter</button>
+                           </details>
+      </div>
+
+      <div class="bar2">
+          <h1>User Space</h1>
+                    <details>
+                    <summary>ADD YOUR ADDRESS</summary>
+                    <span class="entypo-user inputUserIcon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                     <input type="text" class="user" placeholder="YOUR ID.."/>
+                     <span class="entypo-user inputUserIcon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                     <input type="text" class="user" placeholder="YOUR ADDRESS"/>
+                     <button class="submit1">Enter</button>
+                  </details>
+                  <details>
+                      <summary>ADD YOUR PAYMENT METHOD</summary>
+                      <span class="entypo-user inputUserIcon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                       <input type="text" class="user" placeholder="YOUR Id.."/>
+                       <select class="submit1">
+                          <option value="v">Visa</option>
+                          <option value="mc">MasterCard</option>
+                          <option value="pp">Paypal</option>
+                          <option value="bt">Bank-Transfer</option>
+                        </select>
+                       <span class="entypo-user inputUserIcon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                       <input type="text" class="user" placeholder="Account num.."/>
+                       <button class="submit1">Enter</button>
+                       </details>     
+          </div>
+
+
+
+
+
+
+	</header>
+
+
+
+</body>
+
+
+</html>

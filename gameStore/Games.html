@@ -1,0 +1,186 @@
+<html>
+<head>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<style>
+		*
+{
+margin: 0;
+padding: 0;
+}
+html{
+
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+background-size:cover ;
+background-repeat: no-repeat;
+background-attachment: fixed; /* <= This one */
+
+}
+header
+{
+
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+}
+
+
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+
+.main-nav li
+{
+display: inline-block;
+
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+.btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+
+
+}
+.btn3 {
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 5px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+}
+.kda1{
+
+color: white;
+max-height:100px;
+
+}
+
+
+
+.bar{
+  width:15%;
+  min-width: 150px;
+}
+.bar > details{
+color: white;
+}
+.bar > details > summary{
+  color:white;
+  margin:6px;
+  padding:8px;
+  background: none;
+  cursor: pointer;
+}
+.bar > details > summary:hover{
+  color:brown;
+}
+.bar > details > a{
+  display: block;
+  text-decoration: none;
+  color:grey;
+  font-size: 13px;
+  margin:3px 6px 3px 18px;
+  padding: 4px;
+  background: none;
+}
+
+</style>
+	<script></script>
+<title>Games</title>
+<Link href="GamesSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header>
+
+		<div class="row">
+			<ul class ="main-nav">
+				<li> <a href ="/Home">HOME </a> </li>
+				<li class="active"> <a href ="/Games">Games</a> </li>
+				<li> <a href ="/Services">SERVICES</a> </li>
+				<li> <a href ="/Login">LOG IN</a> </li>
+
+</ul>
+</div>
+<div class="bar">
+	<details><summary>AllGames</summary>
+<table style="width: 50%;" id="kda" class="kda1">
+		<tr>
+		<th>
+		GameName
+		</th>
+		</tr>	
+			</table>
+		</details>
+		</div>
+		
+			<script>
+			$.getJSON('/getBestSelling', function(data) {
+				var tableRef = document.getElementById('kda');
+				for(var i=0;i<data.length;i++){
+		  var newRow   = tableRef.insertRow(tableRef.rows.length);
+		
+		var newCell  = newRow.insertCell(0);
+		
+		var newText  = document.createTextNode(`${data[i].Gname}`);
+		newCell.appendChild(newText);
+		
+		
+				 }
+							
+				
+			});
+
+			</script>
+			<div class="bar">
+					<details>
+					  <summary>Category</summary>
+					  <a href="/Catsearch/Action">Action</a>
+					  <a href="/Catsearch/Adventure">Adventure</a>
+					  <a href="/Catsearch/Role-playing">Role-playing</a>
+					  <a href="/Catsearch/Simulation">Simulation</a>
+					  <a href="/Catsearch/Strategy">Strategy</a>
+					  <a href="/Catsearch/Sports">Sports</a>
+					  <a href="/Catsearch/Puzzle">Puzzle</a>
+					</details>
+					<details>
+						<summary>Platform</summary>
+						<a href="/platformsearch/PC">PC</a>
+						<a href="/platformsearch/Ps4">PS4</a>
+						<a href="/platformsearch/XBox">XBOX</a>
+						<a href="/platformsearch/switch">SWITCH</a>
+					  </details>
+				  </div>
+	</header>
+
+
+</body>
+
+</html>

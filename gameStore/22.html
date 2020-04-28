@@ -1,0 +1,392 @@
+<html>
+<head>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<style>
+		*
+{
+margin: 0;
+padding: 0;
+}
+html{
+
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+background-size:cover ;
+background-repeat: no-repeat;
+background-attachment: fixed; /* <= This one */
+
+}
+header
+{
+
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+}
+
+
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+
+.main-nav li
+{
+display: inline-block;
+
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+.btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+
+
+}
+.btn3 {
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 5px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+}
+.kda1{
+
+color: white;
+max-height:100px;
+
+}
+
+
+
+.bar{
+  width:15%;
+  min-width: 150px;
+}
+.bar > details{
+color: white;
+}
+.bar > details > summary{
+  color:white;
+  margin:6px;
+  padding:8px;
+  background: none;
+  cursor: pointer;
+}
+.bar > details > summary:hover{
+  color:brown;
+}
+.bar > details > a{
+  display: block;
+  text-decoration: none;
+  color:grey;
+  font-size: 13px;
+  margin:3px 6px 3px 18px;
+  padding: 4px;
+  background: none;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  margin-left:90%;
+  margin-top:3.8%;
+
+
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 1s;
+}
+
+.sidenav a:hover {
+  color: 	#FF0000;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+</style>
+	<script></script>
+<title>Games</title>
+<Link href="GamesSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header>
+
+		<div class="row">
+			<ul class ="main-nav">
+                    <li > <a <span  onclick="GotoHome()"></span>HOME </a> </li>
+                    <li class="active"> <a <a id = "lolo" <span  onclick="GotooGame()"></span>Games</a> </li>
+				<li> <a id = "lol" <span style="font-size:30px;cursor:pointer"  onclick="openNav()">; open</span></a> </li>
+
+</ul>
+</div>
+<div class="bar">
+	<details><summary>AllGames</summary>
+<table  style="width: 50%;" id="kda" class="kda1" width='100%' border='0' cellspacing='1' cellpadding='0'>
+		<tr>
+		<th>
+		GameName
+		</th>
+		</tr>	
+			</table>
+		</details>
+        </div>
+        <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Profile</a>
+                <a onclick="GotoServiceCust()">Services</a>
+                <a onclick="GotoOrders()">Your Orders</a>
+                <a  href="/Home">Log Out</span></a>
+              </div>
+
+             <!-- <p id="url1" class="da1"></p> -->
+
+			<script>
+                   var url = location.href;
+                    var res = url.split("/");
+                   var res2 = res[res.length-2];  
+                   document.getElementById("lol").innerHTML = res2;
+
+ 
+                   var res3 = res[res.length-2];   ///////
+                   var res4 = '/getBestSelling/'+res3; //////
+
+
+                   var rescat = res[res.length-1];       ////
+                   var rescat2 ='/gamesearchcat/'+rescat;   /////
+
+
+
+
+        $.getJSON( rescat2 , function(data) {  /////
+
+				var tableRef = document.getElementById('kda');
+				for(var i=0;i<data.length;i++){ 
+
+		var newRow   = tableRef.insertRow(tableRef.rows.length); 
+		var newCell  = newRow.insertCell(0);
+		var firstRow=document.getElementById("kda").rows[i+1];
+    var x=firstRow.insertCell(-1);
+    if(res2=='Forager')
+
+    x.innerHTML="<img src='https://i.ytimg.com/vi/enmI5wUNBWg/maxresdefault.jpg' alt='hello'  style='height:20%; width:2 0%;' border=1px />";
+    if(res2=='Dreams')
+
+    x.innerHTML="<img src='https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/10/02/fbaddba5/Dreams-cover-art-CROPPED-v2.jpg' alt='hello'  style='height:20%; width:2 0%;' border=1px />";
+
+    var newText  = document.createTextNode(`${data[i].Gname}`);
+    
+		newCell.appendChild(newText);
+		
+		
+				 }
+							
+				
+            }); ////
+            
+            var resplat = res[res.length-1];       ////
+                   var resplat2 ='/gamesearchplat/'+resplat;   /////
+
+
+
+
+        $.getJSON( resplat2, function(data) {  /////
+
+				var tableRef = document.getElementById('kda');
+				for(var i=0;i<data.length;i++){ 
+
+		var newRow   = tableRef.insertRow(tableRef.rows.length); 
+		var newCell  = newRow.insertCell(0);
+		var firstRow=document.getElementById("kda").rows[i+1];
+    var x=firstRow.insertCell(-1);
+    if(res2=='Forager')
+
+    x.innerHTML="<img src='https://i.ytimg.com/vi/enmI5wUNBWg/maxresdefault.jpg' alt='hello'  style='height:20%; width:2 0%;' border=1px />";
+    if(res2=='Dreams')
+
+    x.innerHTML="<img src='https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/10/02/fbaddba5/Dreams-cover-art-CROPPED-v2.jpg' alt='hello'  style='height:20%; width:2 0%;' border=1px />";
+
+    var newText  = document.createTextNode(`${data[i].Gname}`);
+    
+		newCell.appendChild(newText);
+		
+		
+				 }
+							
+				
+            }); ////
+        
+
+        $.getJSON(res4  , function(data) {  /////
+				var tableRef = document.getElementById('kda');
+				for(var i=0;i<data.length;i++){ 
+
+		var newRow   = tableRef.insertRow(tableRef.rows.length); 
+		var newCell  = newRow.insertCell(0);
+		var firstRow=document.getElementById("kda").rows[i+1];
+    var x=firstRow.insertCell(-1);
+    if(res2=='Forager')
+
+x.innerHTML="<img src='https://i.ytimg.com/vi/enmI5wUNBWg/maxresdefault.jpg' alt='hello'  style='height:20%; width:2 0%;' border=1px />";
+if(res2=='Dreams')
+
+x.innerHTML="<img src='https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/10/02/fbaddba5/Dreams-cover-art-CROPPED-v2.jpg' alt='hello'  style='height:20%; width:2 0%;' border=1px />";
+
+    var newText  = document.createTextNode(`${data[i].Gname}`);
+    
+		newCell.appendChild(newText);
+		
+		
+				 }
+							
+				
+            });
+            
+        
+
+                   function openNav() {
+
+                  document.getElementById("mySidenav").style.width = "10%";
+
+                }
+                
+                function closeNav() {
+                  document.getElementById("mySidenav").style.width = "0%";
+                  
+
+                }
+                function GotooGame() {
+                    var url = location.href;
+                    var res = url.split("/");
+                   var res2 = res[res.length-2];  
+                   var res3 = res[res.length-1]; 
+                   window.location=`/GameCUS/${res2}/${res3}`;
+                }
+                function GotoHome() {
+                    var url = location.href;
+                    var res = url.split("/");
+                   var res2 = res[res.length-2];  
+                   var res3 = res[res.length-1]; 
+                   window.location=`/HomeCus/${res2}/${res3}`;
+                }
+            
+                function GotoServiceCust() {
+                    var url = location.href;
+                    var res = url.split("/");
+                   var res2 = res[res.length-2];  
+                   var res3 = res[res.length-1]; 
+                   window.location=`/ServiceCust/${res2}/${res3}`;
+                }
+                function GotoOrders() {
+                    var url = location.href;
+                    var res = url.split("/");
+                   var res2 = res[res.length-2];  
+                   var res3 = res[res.length-1]; 
+                   window.location=`/YourOrders/${res2}/${res3}`;
+                }
+        
+
+
+			</script>
+			<div class="bar">
+					<details>
+					  <summary>Category</summary>
+					  <a href="/gamesearchcat/Action">Action</a>
+					  <a href="/gamesearchcat/Adventure">Adventure</a>
+					  <a href="/gamesearchcat/Role-playing">Role-playing</a>
+					  <a href="/gamesearchcat/Simulation">Simulation</a>
+					  <a href="/gamesearchcat/Strategy">Strategy</a>
+					  <a href="/gamesearchcat/Sports">Sports</a>
+					  <a href="/gamesearchcat/Puzzle">Puzzle</a>
+					</details>
+					<details>
+						<summary>Platform</summary>
+						<a href="/gamesearchplat/PC">PC</a>
+						<a href="/gamesearchplat/Ps4">PS4</a>
+						<a href="/gamesearchplat/XBox">XBOX</a>
+						<a href="/gamesearchplat/switch">SWITCH</a>
+					  </details>
+				  </div>
+	</header>
+
+
+</body>
+
+</html>
+
+/// m4akel
+// el table bta3 el games w el platform nav hayzhr kolo t7t b3do 8alebn
+// m4 3arfa lma ad8t 3la sora f el game hatl3ly el page  bta3tha w kda aw l2
+// lw el url bta3hom kda mzboott
+// a7ot paragraph aw l2?
+//el paragarph byktb eh asln?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

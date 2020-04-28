@@ -1,0 +1,234 @@
+<html>
+<head><style>
+*
+{
+margin: 0;
+padding: 0;
+}
+html{
+  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+   background-attachment: fixed;
+}
+
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+
+.main-nav li
+{
+display: inline-block;
+
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+/* .btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+} */
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* zocial */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+
+h2 {
+  color:rgba(255,255,255,.8);
+  margin-left:12px;
+}
+
+body {
+  background: #272125;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+form {
+  position:absolute;
+  margin: auto;
+  width: auto;
+  height: auto;
+  margin-top:10%;
+  margin-left:35%;
+}
+
+input {
+  padding: 16px;
+  border-radius:7px;
+  border:0px;
+  background: rgba(255,255,255,.2);
+  display: block;
+  margin: 15px;
+  width: 300px;  
+  color:white;
+  font-size:18px;
+  height: 54px;
+}
+
+input:focus {
+  outline-color: rgba(0,0,0,0);
+  background: rgba(255,255,255,.95);
+  color: #e74c3c;
+}
+
+.submit{
+  float:right;
+  height: 50px;
+  width: 120px;
+  border: 0px;
+  margin-top: 20PX;
+  background: #e74c3c;
+  border-radius:7px;
+  padding: 10px;
+  color:white;
+  font-size:22px;
+  position:absolute;
+  margin-left:350px;
+}
+.submit2{
+  float:right;
+  height: 50px;
+  width: 120px;
+  border: 0px;
+  margin-top: 87PX;
+  background: #e74c3c;
+  border-radius:7px;
+  padding: 10px;
+  color:white;
+  font-size:22px;
+  position: absolute;
+  margin-left:350px;
+}
+
+.inputUserIcon {
+  position:absolute;
+  top:68px;
+  right: 80px;
+  color:white;
+}
+
+.inputPassIcon {
+  position:absolute;
+  top:136px;
+  right: 80px;
+  color:white;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: #e74c3c;
+}
+</style>
+<title>Game Store Balabizo</title>
+</head>
+
+<body>
+	<script>
+			$(".user").focusin(function(){
+			  $(".inputUserIcon").css("color", "#e74c3c");
+			}).focusout(function(){
+			  $(".inputUserIcon").css("color", "white");
+			});
+			
+			$(".pass").focusin(function(){
+			  $(".inputPassIcon").css("color", "#e74c3c");
+			}).focusout(function(){
+			  $(".inputPassIcon").css("color", "white");
+      });
+      
+      function register(){
+      var username = document.getElementById("username").value;
+      var name     = document.getElementById("name").value;
+      var age      = document.getElementById("age").value;
+      var address  = document.getElementById("address").value;
+      var password = document.getElementById("password").value;
+      var email    = document.getElementById("email").value;
+      window.location = "/Register/"+username+"/"+name+"/"+age+"/"+address+"/"+password+"/"+email
+      alert("u registered")
+      window.location = "/Home"
+    }
+      </script>
+      
+	<header>
+		<div class="row">
+			<ul class ="main-nav">
+				<li> <a href ="/Home">HOME </a> </li>
+				<li> <a href ="/Games">Games</a> </li>
+				<li> <a href ="/Services">SERVICES</a> </li>
+				<li class="active"> <a href ="/Login">LOG IN</a> </li>
+			</ul>
+		</div>
+		
+		<form action="">
+				<h2><span class="entypo-login"><i class="fa fa-sign-in"></i></span> Register</h2>
+        <button class="submit2" onclick="register()"><span class="entypo-lock2"><i class="fa fa-lock2">Register</i></span></button>
+				<span class="entypo-user inputUserIcon">
+				   <i class="fa fa-user"></i>
+				 </span>
+				<input type="text" class="user" id="username" placeholder="username"/>
+                <span class="entypo-key inputUserIcon">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input type="text" class="pass" id="name" placeholder="Name"/>
+                <span class="entypo-key inputUserIcon">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input type="number" class="age" id="age" placeholder="age"/>
+                <span class="entypo-key inputUserIcon">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input type="text" class="add" id="address" placeholder="Your Address"/>
+                <span class="entypo-key inputUserIcon">
+				            <i class="fa fa-key"></i>
+				        </span>
+                <input type="password" class="pass" id="password" placeholder="password"/>
+                <span class="entypo-key inputPassIcon">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input type="email" class="email" id="email" placeholder="email"/>
+            </form>
+
+
+</body>
+
+
+</html>

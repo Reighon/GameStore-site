@@ -1,0 +1,177 @@
+<html>
+<head>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<style>
+		*
+{
+margin: 0;
+padding: 0;
+}
+html{
+
+background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+background-size:cover ;
+background-repeat: no-repeat;
+background-attachment: fixed; /* <= This one */
+
+}
+header
+{
+
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+}
+
+
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+
+.main-nav li
+{
+display: inline-block;
+
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+.btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+
+
+}
+.btn3 {
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 5px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+}
+.kda1{
+
+color: white;
+margin: 5px;
+max-height:100px;
+font-size: 200%;
+
+}
+
+.da1{
+color: white;
+}
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+
+</style>
+	<script></script>
+<title>Games</title>
+<Link href="GamesSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header>
+
+		<div class="row">
+			<ul class ="main-nav">
+				<li> <a href ="/Home">HOME </a> </li>
+				<li class="active"> <a href ="/Games">Games</a> </li>
+				<li> <a href ="/Services">SERVICES</a> </li>
+				<li> <a href ="/Login">LOG IN</a> </li>
+
+</ul>
+</div>
+<div>
+<table style="width: 27%; height:auto;" id="kda" border="0" class="kda1" cellspacing="1" cellpadding="0">
+		<tr>
+		<th>
+		GameName
+		</th>
+		</tr>	
+			</table>
+        </div>
+        
+        <p id="url1" class="da1"></p>
+
+			<script>
+    var url = location.href;
+    var res = url.split("/");
+    var res2 = res[res.length-1];
+    var res3 ="/gamesearchcat/"+res2;
+			$.getJSON(res3, function(data) {
+                var tableRef = document.getElementById('kda');
+                
+  if(data.length!=0){
+	for(var i=0;i<data.length;i++){
+	var newRow   = tableRef.insertRow(tableRef.rows.length);
+    var newCell  = newRow.insertCell(0);
+    var firstRow=document.getElementById("kda").rows[i+1];
+    var x=firstRow.insertCell(-1);
+    if(res2){
+    }
+    if(res2=='Forager'){
+    x.innerHTML=` <a onclick ="makelink(${data[i].bar_code})"><img src='https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/10/02/fbaddba5/Dreams-cover-art-CROPPED-v2.jpg' alt='hello'  style='height:30%; width:120%;' border='1px' /> </a>`;
+    }
+    if(res2=='Dreams'){
+    x.innerHTML=` <a onclick ="makelink(${data[i].bar_code})"><img src='https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/10/02/fbaddba5/Dreams-cover-art-CROPPED-v2.jpg' alt='hello'  style='height:30%; width:120%;' border='1px' /> </a>`;
+    }
+  
+  var newText  = document.createTextNode('Name : ' + `${data[i].Gname}`+ ' Rate : ' +`${data[i].Rate}`+' Platform : '+`${data[i].platform_copy}`+' Price : ' +`${data[i].price}`);
+  newCell.appendChild(newText);
+   }}
+  else{
+               
+  var newRow   = tableRef.insertRow(tableRef.rows.length);
+	var newCell  = newRow.insertCell(0);
+  var newText  = document.createTextNode('   Game Name :' + 
+  `${data[i].Gname}` +'    Game Rate :    ' +
+  `${data[i].Rate}`+ '    Game Platform :     ' +
+  `${data[i].platform_copy}`+'    Game price :     ' +
+  `${data[i].price}`);
+  newCell.appendChild(newText);
+  }
+  });
+      
+
+      function makelink(data){
+        window.location=`/GamePage/`+data;}
+    </script>
+	</header>
+    </body>
+
+</html>

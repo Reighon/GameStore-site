@@ -1,0 +1,360 @@
+<html>
+<head>
+<title>Game Store Balabizo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+*
+{
+margin: 0;
+padding: 0;
+}
+
+
+html{
+
+background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpapercave.com/wp/wp4590838.jpg);
+background-size:cover ;
+background-repeat: no-repeat;
+background-attachment: fixed; /* <= This one */
+
+}
+
+
+header
+{
+height:100vh ;
+background-size:     cover;
+   background-repeat:   no-repeat;
+   background-position: center center;
+}
+
+
+.main-nav
+{
+float: right;
+list-style: none ;
+margin-top: 30px;
+}
+
+.main-nav li
+{
+display: inline-block;
+
+}
+.main-nav li a
+ {
+color: white ;
+text-decoration: none ;
+padding: 5px 20px ;
+font-family: "Roboto" , sans-serif ;
+font-size: 15px ;
+}
+.main-nav li.active a {
+  border: 1px solid white ;
+}
+.main-nav li a:hover {
+  border: 1px solid white ;
+}
+.btn{
+  border: 1px solid none;
+  text-decoration: none ;
+  background: none;
+  color: white;
+  padding: 5px 20px ;
+  font-size: 15px ;
+  font-family: "Roboto", sans-serif ;
+  cursor: pointer;
+  margin: 30px;
+
+
+}
+
+
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+.mySlides {display:none;}
+
+
+.bar{
+  position: absolute;
+  width:40%;
+  min-width: 150px;
+  margin-left: 10%; 
+  margin-top:10%;
+}
+.bar > details{
+color: white;
+}
+.bar > details > summary{
+  color:white;
+  margin:6px;
+  padding:8px;
+  background: none;
+  cursor: pointer;
+}
+.bar > details > summary:hover{
+  color:brown;
+}
+.bar > details > input{
+  display: block;
+  text-decoration: none;
+  color:rgb(207, 204, 204);
+  font-size: 13px;
+  margin:3px 6px 3px 18px;
+  padding: 4px;
+  background: none;
+  width:250px;
+}
+.submit{
+  width:100px;
+  height: 30px;
+  color:green;
+  background:black ;
+  margin:3px 6px 3px 18px;
+}
+.submit1{
+  width:100px;
+  height: 30px;
+  color:rgb(69, 87, 245);
+  background:black ;
+  margin:3px 6px 3px 18px;
+}
+h1{
+  color:white;
+}
+.bar2{
+  position: absolute;
+  width:40%;
+  min-width: 150px;
+  margin-left: 60%; 
+  margin-top:10%;
+}
+.bar2 > details{
+color: white;
+}
+.bar2 > details > summary{
+  color:white;
+  margin:6px;
+  padding:8px;
+  background: none;
+  cursor: pointer;
+}
+.bar2 > details > summary:hover{
+  color:brown;
+}
+.bar2 > details > input{
+  display: block;
+  text-decoration: none;
+  color:rgb(207, 204, 204);
+  font-size: 13px;
+  margin:3px 6px 3px 18px;
+  padding: 4px;
+  background: none;
+  width:250px;
+}
+
+</style>
+
+</head>
+
+<body>
+  <script>
+    function block(){
+      var id = document.getElementById("id").value;  
+      window.location = "/CustBlocking/"+id
+      alert("Customer id : " + id + "Blocked")
+      window.location = "/"
+    }
+    
+    function AddLP(){
+      var LPaddress = document.getElementById("LPaddress").value;
+      window.location = "/AddLogPartner/"+LPaddress
+      alert("Logistic Partner Added")
+      window.location = "/ServicesAdmin"
+    }
+    function InsertG(){
+      var gamename = document.getElementById("gamename").value;
+      var rate     = document.getElementById("rate").value;
+      var date      = document.getElementById("date").value;
+      window.location = "/admingames/"+gamename+"/"+rate+"/"+date
+      alert("Game Added")
+      window.location = "/ServicesAdmin"
+    }
+    function InsertGC(){
+      var gid = document.getElementById("gid").value;
+      var gc     = document.getElementById("gc").value;
+      window.location = "/admingamecat/"+gid+"/"+gc
+      alert("Game Category Added")
+      window.location = "/ServicesAdmin"
+    }
+    function InsertGDS(){
+      var ggid = document.getElementById("ggid").value;
+      var sname= document.getElementById("sname").value;
+      window.location = "/admingamedev/"+ggid+"/"+sname
+      alert("Game Development Studio Added")
+      window.location = "/ServicesAdmin"
+    }
+    function AddCopy(){
+      var rental = document.getElementById("rental").value;
+      var price     = document.getElementById("price").value;
+      var plat      = document.getElementById("plat").value;
+      var Gid  = document.getElementById("Gid").value;
+      var Drental = document.getElementById("Drental").value;
+      var Damg    = document.getElementById("Damg").value;
+      window.location = "/admmincopyinsertionss/"+rental+"/"+price+"/"+plat+"/"+Gid+"/"+Drental+"/"+Damg
+      alert("Copy Added")
+      window.location = "/ServicesAdmin"
+    }
+    
+
+
+
+    </script>
+	<header>
+
+		<div class="row">
+			<ul class ="main-nav">
+					<li class="active"> <a href ="/ServicesAdmin">SERVICES</a> </li>
+
+  
+			</ul>
+
+
+		</div>
+    <!-- <h2 class="w3-center">Automatic Slideshow</h2> -->
+
+    <!-- <div class="w3-content w3-section" style="max-width:500px">
+      <img class="mySlides" src="https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82195776/fee_786_587_png">
+      <img class="mySlides" src="https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-81568349/fee_786_587_png">
+      <img class="mySlides" src="https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82195776/fee_786_587_png" style="width:100%">
+    </div>
+    
+
+    <div class="btn-group">
+        <button>GamesNew</button>
+        <button>GamesUsed</button>
+        <button>GamesKofta</button>
+      </div> -->
+      <div class="bar">
+          <h1>Admin Space</h1>
+            <details>
+                <summary>Blocking A Customer</summary>
+                <span class="entypo-user inputUserIcon">
+                    <i class="fa fa-user"></i>
+                  </span>
+                 <input type="text" class="user" id="id" placeholder="CustomerId.."/>
+                 <button class="submit" onclick="block()">Enter</button>
+              </details>
+              <details>
+                  <summary>Adding A Logistic Partner</summary>
+                  <span class="entypo-user inputUserIcon">
+                      <i class="fa fa-user"></i>
+                    </span>
+                   <input type="text" class="user" id="LPaddress" placeholder="Logistic Partner Address.."/>
+                   <button class="submit" onclick="AddLP()">Enter</button>
+                </details>
+                <details>
+                    <summary>Inserting A Game</summary>
+                    <span class="entypo-user inputUserIcon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                     <input type="text" class="user" id="gamename" placeholder="Game Name.."/>
+                     <span class="entypo-user inputUserIcon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                     <input type="text" class="user" id="rate" placeholder="Rate"/>
+                     <span class="entypo-user inputUserIcon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                     <input type="text" class="user" id="date" placeholder="Date"/>
+                     <button class="submit" onclick="InsertG()">Enter</button>
+                  </details>
+                  <details>
+                      <summary>Inserting A Game Category</summary>
+                      <span class="entypo-user inputUserIcon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                       <input type="text" class="user" id="gid" placeholder="Game Id.."/>
+                       <span class="entypo-user inputUserIcon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                       <input type="text" class="user" id="gc" placeholder="Category.."/>
+                       <button class="submit" onclick="InsertGC()">Enter</button>
+                       </details>
+                       <details>
+                          <summary>Inserting A Game Development Studio</summary>
+                          <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" id="ggid" placeholder="Game Id.."/>
+                           <span class="entypo-user inputUserIcon">
+                              <i class="fa fa-user"></i>
+                            </span>
+                           <input type="text" class="user" id="sname" placeholder="Studio Name.."/>
+                           <button class="submit" onclick="InsertGDS()">Enter</button>
+                           </details>     
+                           <details>
+                              <summary>Adding a copy</summary>
+                              <span class="entypo-user inputUserIcon">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                               <input type="text" class="user" id="rental" placeholder="is_rental 1 is yes 0 if no .."/>
+                               <span class="entypo-user inputUserIcon">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                               <input type="text" class="user" id="price" placeholder="How much is it?.."/>
+                               <span class="entypo-user inputUserIcon">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                               <input type="text" class="user" id="plat" placeholder="Copy Platform.."/>
+                               <span class="entypo-user inputUserIcon">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                               <input type="text" class="user" id="Gid" placeholder="Game id.."/>
+                               <span class="entypo-user inputUserIcon">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                               <input type="text" class="user" id="Drental" placeholder="Daily Rental Rate.."/>
+                               <span class="entypo-user inputUserIcon">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                               <input type="text" class="user" id="Damg" placeholder="How is the Copy CD 0 or 1 or 2.."/>
+                               <button class="submit" onclick="AddCopy()">Enter</button>
+                               </details>
+          </div>
+    
+       
+
+	</header>
+ 
+  
+
+</body>
+
+
+</html>
